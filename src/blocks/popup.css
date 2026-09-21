@@ -89,7 +89,7 @@
 }
 
 .popup__input-error_active {
-  display: block;
+  display: inline;
 }
 
 .popup__title {
