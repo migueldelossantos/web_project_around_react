@@ -18,6 +18,7 @@ function App() {
       .then((data) => {
         setCurrentUser(data);
       })
+      .catch((err) => console.log(err));
     })();
   }, [])
 
@@ -59,36 +60,30 @@ function App() {
   }
 
   function handleUpdateUser (data) {
-    (async () => {
-      await api.updateProfileInfo(data)
-        .then((newData) => {
-          setCurrentUser(newData);
-          handleClosePopup();
-        })
-        .catch((err) => console.log(err));
-    })();
+    api.updateProfileInfo(data)
+      .then((newData) => {
+        setCurrentUser(newData);
+        handleClosePopup();
+      })
+      .catch((err) => console.log(err));
   };
 
   function handleUpdateAvatar (avatar) {
-    (async () => {
-      await api.updateProfileAvatar({ avatar })
-        .then((newData) => {
-          setCurrentUser({...currentUser, avatar: newData.avatar});
-          handleClosePopup();
-        })
-        .catch((err) => console.log(err));
-    })();
+    api.updateProfileAvatar({ avatar })
+      .then((newData) => {
+        setCurrentUser({...currentUser, avatar: newData.avatar});
+        handleClosePopup();
+      })
+      .catch((err) => console.log(err));
   }
 
   function handleAddPlaceSubmit(card) {
-    (async () => {
-      await api.addNewCard(card)
-        .then((newCard) => {
-          setCards([newCard, ...cards]);
-          handleClosePopup();
-        })
-        .catch((err) => console.log(err));
-    })();
+    api.addNewCard(card)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
+        handleClosePopup();
+      })
+      .catch((err) => console.log(err));
   }
 
   return (

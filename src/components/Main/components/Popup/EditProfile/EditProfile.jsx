@@ -17,7 +17,7 @@ function EditProfile () {
     const newErrors = {};
 
     if (name.length < 2) {
-      newErrors.name = 'La nombre debe tener al menos 2 caracteres'
+      newErrors.name = 'El nombre debe tener al menos 2 caracteres'
     }
 
     if (about.length < 2) {

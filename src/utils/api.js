@@ -81,10 +81,12 @@ class Api {
     }
 }
 
+const env = import.meta.env;
+
 const  api = new Api({
-  baseUrl: 'https://around-api.es.tripleten-services.com/v1',
+  baseUrl: env.VITE_API_URL,
   headers: {
-    authorization: 'f2bbbaa7-5fee-4901-9486-b4868c55fd99',
+    authorization: env.VITE_API_KEY,
     'Content-Type': 'application/json'
   }
 });
